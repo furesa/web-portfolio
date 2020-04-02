@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<a name="top"></a>
+<div class="jumbotron">
+    <h1 class="display-4"><a href="#">Teresa Furey</a></h1>
+    <hr class="my-4">
+    <p>random cositas</p>
+</div>
+<div class="card-columns">
+    {% for project in projects %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <img class="card-img-top" src="{% static project.image %}">
+                <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">details</a>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="card border-0">
+        <div class="card p-3 text-right border-0">
+            <div class="card p-3 text-right border-0">
+                <h4 class="font-italic">About</h4>
+                <p class="mb-0">A.whole.lot.of.nothing.</p>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="p-4">
+                <h4 class="font-italic text-right">Cheat Sheets</h4>
+                <ol class="list-unstyled text-right mb-0">
+                    {% for cheatsheet in cheatsheets %}
+                        <li><a href="{% url 'cheatsheet_detail' cheatsheet.pk %}">{{ cheatsheet.title }}</a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="my-4">
+<footer class="container">
+    <p class="float-left">
+        <br><br>
+        <a href="#top">Back to top</a>
+    </p>
+</footer>
+{% endblock %}

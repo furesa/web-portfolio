@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="row">
+    <div class="col-md-4">
+        <p class="float-left">
+            <a href="/projects">Back</a>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <object data="{% static cheatsheet.image %}" type="application/pdf" width="900" height="700"></object>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h5>Description:</h5>
+        <p>{{ cheatsheet.description }}</p>
+        <br>
+        <h5>Handy Links:</h5>
+        <a href="{{ cheatsheet.links }}"><p>{{ cheatsheet.links }}</p></a>
+    </div>
+</div>
+{% endblock %}

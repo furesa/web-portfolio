@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="row">
+    <div class="col-md-4">
+        <p class="float-left">
+            <a href="/projects">Back</a>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <object data="{% static project.image %}" width="500" height="450"></object>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <h5>Description:</h5>
+        <p>{{ project.description }}</p>
+        <br>
+        <h5>Handy Links:</h5>
+        <a href="{{ project.technology }}"><p>{{ project.technology }}</p></a>
+    </div>
+</div>
+{% endblock %}
